@@ -5,6 +5,7 @@ import iconLinkedin from "./../../../assets/icons8-linkedin-64.svg";
 import iconWhats from "./../../../assets/icons8-whatsapp (1).svg";
 import iconGitHub from "./../../../assets/icons8-github.svg";
 import "./styles.css";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const [showScrollButton, setShowScrollButton] = useState(false);
@@ -33,9 +34,8 @@ export default function Footer() {
       <p className="footer-font-color">&copy; {year} Todos os direitos reservados.</p>
       <nav className="nav-footer">
         <div className="links-footer">
-          <a href="/contato">Contato</a> |
-          <a href="/privacidade">Política de Privacidade</a> |
-          <a href="/termos">Termos de Uso</a>
+          <a href="/contact">Contato</a> |
+          <Link to="/termos">Termos e Privacidade</Link>
         </div>
       </nav>
       <div className="mp-container socials-media">
