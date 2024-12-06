@@ -34,7 +34,6 @@ export default function Footer() {
       <p className="footer-font-color">&copy; {year} Todos os direitos reservados.</p>
       <nav className="nav-footer">
         <div className="links-footer">
-          <a href="/contact">Contato</a> |
           <Link to="/termos">Termos e Privacidade</Link>
         </div>
       </nav>
