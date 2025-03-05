@@ -17,7 +17,7 @@ header {
     align-items: center;
     justify-content: space-between;
     flex-grow: 1;
-    gap: 10px; 
+    gap: 20px; 
 }
 
 nav {
@@ -54,7 +54,7 @@ nav a:hover {
 
     nav {
         justify-content: center; 
-        gap: 10px; 
+        gap: 15px; 
         flex-wrap: wrap; 
     }
 
@@ -64,108 +64,39 @@ nav a:hover {
 }
 
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 960px) {
     header {
         height: 120px; 
-        padding: 0 40px; 
+        padding: 0 40px;
+        justify-content: space-evenly; 
 
-    }
-
-    .title {
-        justify-content: space-between;
-    }
-
-    nav a {
-        font-size: 20px; 
-    }
-header {
-    background-color: var(--bg-color-header);
-    height: 100px;
-    color: var(--font-color-primary);
-    font-size: 24px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-grow: 1;
-    gap: 10px;
-}
-
-nav {
-    display: flex;
-    gap: 20px;
-}
-
-nav a {
-    text-decoration: none;
-    color: var(--font-color-primary);
-    font-size: 18px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: var(--font-color-highlight);
-}
-
-
-@media screen and (max-width: 480px) {
-    header {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
-        text-align: center;
-    }
-
-    .title {
-        justify-content: center;
-        gap: 5px;
-        flex-direction: column;
-    }
-
-    nav {
-        justify-content: center;
-        gap: 10px;
-        flex-wrap: wrap;
-    }
-
-    nav a {
-        font-size: 16px;
-    }
-}
-
-
-@media screen and (min-width: 1024px) {
-    header {
-        height: 120px;
-        padding: 0 40px; 
     }
 
     .title {
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between; 
         margin-bottom: 0;
-
-    }
-
-    nav {
-        gap: 30px;
-
-
     }
 
     nav a {
-        font-size: 20px;
+        font-size: 20px; 
     }
-}
 
+    nav {
+    display: flex;
+    gap: 20px;
+    }
+
+    nav a {
+    text-decoration: none;
+    color: var(--font-color-primary);
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+    color: var(--font-color-highlight);
+    }
 }

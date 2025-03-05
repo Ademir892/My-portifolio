@@ -7,7 +7,7 @@ export default function Header() {
         <header>
             <nav>
                 <div className="title">
-                    <Link to="/">
+                    <Link to="/about">
                         <h1>Ademir Marmitt Traesel</h1>
                     </Link>
                     <div className="mp-container">
