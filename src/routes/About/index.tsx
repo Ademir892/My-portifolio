@@ -1,5 +1,5 @@
 import "./styles.css";
-import imgAvatar from "./../../../assets/my-avatar.jpg"
+import imgAvatar from "./../../../assets/professor-ademir7.jpg"
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 

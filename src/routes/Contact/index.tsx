@@ -9,7 +9,7 @@ type FormValues = {
     name: string;
     email: string;
     message: string;
-    phone: string;
+    phone?: string;
 };
 
 export function Contact() {
