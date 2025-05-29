@@ -9,6 +9,7 @@ type FormValues = {
     name: string;
     email: string;
     message: string;
+    phone: string;
 };
 
 export function Contact() {
@@ -25,18 +26,18 @@ export function Contact() {
         const serviceID = "service_4ej0xm4";
         const templateID = "template_5xmb5pi";
         const publicKey = "amcRpFdmhcKDDOfsA";
-    
+
         emailjs
-          .send(serviceID, templateID, data, publicKey)
-          .then(() => {
-            alert("Mensagem enviada com sucesso! 🚀");
-            reset();
-          })
-          .catch((error) => {
-            console.error("Erro ao enviar mensagem:", error);
-            alert("Ocorreu um erro. Por favor, tente novamente.");
-          });
-      };
+            .send(serviceID, templateID, data, publicKey)
+            .then(() => {
+                alert("Mensagem enviada com sucesso! 🚀");
+                reset();
+            })
+            .catch((error) => {
+                console.error("Erro ao enviar mensagem:", error);
+                alert("Ocorreu um erro. Por favor, tente novamente.");
+            });
+    };
 
 
     return (
@@ -74,6 +75,23 @@ export function Contact() {
                             })}
                         />
                         {errors.email && <p className="form-error">{errors.email.message}</p>}
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="phone">Telefone (Opcional)</label>
+                        <input
+                            id="phone"
+                            type="tel"
+                            placeholder="(XX) XXXXX-XXXX"
+                            {...register('phone', {
+                                
+                                pattern: {
+                                    value: /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/, 
+                                    message: 'Formato de telefone inválido. Use (XX) XXXXX-XXXX ou XX XXXXX-XXXX.',
+                                },
+                            })}
+                        />
+                        {errors.phone && <p className="form-error">{errors.phone.message}</p>}
                     </div>
 
                     <div className="form-group">
