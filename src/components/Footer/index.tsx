@@ -12,6 +12,10 @@ export default function Footer() {
 
   const year = new Date().getFullYear(); 
   
+  const userPart = "contato";
+  const domainPart = "ademir_dev_mentorphysical.com";
+  const finalEmailDisplay = `${userPart}@${domainPart}`;
+  const actualEmailForMailto = "ademirtraesel@hotmail.com";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,7 +72,7 @@ export default function Footer() {
       </div>
       <p className="footer-font-color">
         Entre em contato:{" "}
-        <a href="mailto:ademirtraesel@hotmail.com">contato@ademir_dev_mentorphysical.com</a>
+        <a href={`mailto:${actualEmailForMailto}`}>{finalEmailDisplay}</a>
       </p>
 
       <button
