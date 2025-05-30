@@ -2,8 +2,10 @@ import "./styles.css";
 import imgAvatar from "./../../../assets/professor-ademir7.jpg"
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import { finalEmailDisplay, actualEmailForMailto } from "./../../utils/exportConst.ts";
 
 export default function About() {
+
     return (
         <>
             <Header />
@@ -64,9 +66,9 @@ export default function About() {
                     <h2 className="title">Contato</h2>
                     <p>
                         Quer saber mais ou colaborar em um projeto? Me encontre nas redes
-                        sociais ou envie um e-mail para {"ademirtraesel@hotmail.com "}
-                        <a href="mailto:ademirtraesel@hotmail.com " className="link">
-                            contato@ademir.com.br
+                        sociais ou envie um e-mail para&nbsp;<br></br>
+                        <a href={`mailto:${actualEmailForMailto }`} className="link">
+                            {finalEmailDisplay}
                         </a>
                         .
                     </p>

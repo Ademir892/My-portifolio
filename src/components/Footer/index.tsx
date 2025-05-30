@@ -6,16 +6,14 @@ import iconWhats from "./../../../assets/icons8-whatsapp (1).svg";
 import iconGitHub from "./../../../assets/icons8-github.svg";
 import "./styles.css";
 import { Link } from "react-router-dom";
+import { finalEmailDisplay, actualEmailForMailto }from "./../../utils/exportConst.ts";
 
 export default function Footer() {
   const [showScrollButton, setShowScrollButton] = useState(false);
 
   const year = new Date().getFullYear(); 
   
-  const userPart = "contato";
-  const domainPart = "ademir_dev_mentorphysical.com";
-  const finalEmailDisplay = `${userPart}@${domainPart}`;
-  const actualEmailForMailto = "ademirtraesel@hotmail.com";
+
 
   useEffect(() => {
     const handleScroll = () => {

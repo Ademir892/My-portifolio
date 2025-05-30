@@ -42,7 +42,7 @@ export default function Home() {
                     <section className="projects-preview">
                         <h2>Meus Projetos</h2>
                         <p>
-                            Confira alguns dos projetos que desenvolvi, aplicando tecnologias como React, APIs RESTful e C#.
+                            Confira alguns dos projetos que desenvolvi, aplicando tecnologias como React, APIs RESTful, JavaScript e C#.
                         </p>
                         <Link to="/projects" className="btn-link">
                             Ver Projetos
