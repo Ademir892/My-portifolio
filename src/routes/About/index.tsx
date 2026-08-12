@@ -1,14 +1,10 @@
 import "./styles.css";
 import imgAvatar from "./../../../assets/professor-ademir7.jpg"
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import { finalEmailDisplay, actualEmailForMailto } from "./../../utils/exportConst.ts";
 
 export default function About() {
 
     return (
-        <>
-            <Header />
             <div className="container">
                 <div className="profile">
                     <img
@@ -74,7 +70,5 @@ export default function About() {
                     </p>
                 </div>
             </div>
-            <Footer />
-        </>
     );
 }

@@ -1,11 +1,8 @@
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
+
 import "./styles.css";
 
 export function TermsAnsPrivacy(){
     return (
-        <>
-            <Header />
             <div className="terms-container">
                 <h1>Termos de Uso e Política de Privacidade</h1>
 
@@ -55,7 +52,5 @@ export function TermsAnsPrivacy(){
                     </p>
                 </section>
             </div>
-            <Footer />
-        </>
     );
 }

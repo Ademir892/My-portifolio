@@ -1,6 +1,5 @@
 
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
+
 import { Link } from "react-router-dom";
 import "./styles.css";
 
@@ -8,8 +7,6 @@ import "./styles.css";
 
 export default function Home() {
     return (
-        <>
-            <Header />
             <div className="home-container">
                 <header className="hero-section">
                     <div className="hero-content">
@@ -60,7 +57,5 @@ export default function Home() {
                     </section>
                 </main>
             </div>
-            <Footer />
-        </>
     );
 }

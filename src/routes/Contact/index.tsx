@@ -1,6 +1,4 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
 import emailjs from "@emailjs/browser";
 import "./styles.css";
 
@@ -41,8 +39,6 @@ export function Contact() {
 
 
     return (
-        <>
-            <Header />
             <div className="contact-container">
                 <h1>Contato</h1>
                 <p>Entre em contato comigo preenchendo o formulário abaixo.</p>
@@ -116,8 +112,6 @@ export function Contact() {
                     </button>
                 </form>
             </div>
-            <Footer />
-        </>
 
     );
 }
