@@ -1,61 +1,116 @@
-
-
 import { Link } from "react-router-dom";
+
 import "./styles.css";
 
-
+const technologies = [
+  "React",
+  "TypeScript",
+  "Java",
+  "JavaScript",
+  "Git",
+  "Maven",
+];
 
 export default function Home() {
-    return (
-            <div className="home-container">
-                <header className="hero-section">
-                    <div className="hero-content">
-                        <h1>Bem-vindo ao Meu Portfólio</h1>
-                        <p>
-                            Sou Ademir, Desenvolvedor Frontend/Backend e Educador Físico, apaixonado por tecnologia e bem-estar.
-                        </p>
-                        <div className="hero-buttons">
-                            <Link to="/projects" className="btn-primary">
-                                Meus Projetos
-                            </Link>
-                            <Link to="/about" className="btn-secondary">
-                                Sobre Mim
-                            </Link>
-                        </div>
-                    </div>
-                </header>
+  return (
+    <div className="home-page">
+      <section className="home-hero">
+        <div className="home-hero__container">
+          <div className="home-hero__content">
+            <div className="home-hero__eyebrow">
+              <span className="home-hero__eyebrow-line" />
 
-                <main className="sections">
-                    <section className="about-preview">
-                        <h2>Sobre Mim</h2>
-                        <p>
-                            Desenvolvedor com experiência em React, TypeScript e C#, além de Educador Físico. Acredito no equilíbrio entre tecnologia e saúde.
-                        </p>
-                        <Link to="/about" className="btn-link">
-                            Saiba Mais
-                        </Link>
-                    </section>
-
-                    <section className="projects-preview">
-                        <h2>Meus Projetos</h2>
-                        <p>
-                            Confira alguns dos projetos que desenvolvi, aplicando tecnologias como React, APIs RESTful, JavaScript e C#.
-                        </p>
-                        <Link to="/projects" className="btn-link">
-                            Ver Projetos
-                        </Link>
-                    </section>
-
-                    <section className="contact-preview">
-                        <h2>Entre em Contato</h2>
-                        <p>
-                            Interessado em trabalhar comigo ou simplesmente quer conversar? Vamos nos conectar!
-                        </p>
-                        <Link to="/contact" className="btn-link">
-                            Contato
-                        </Link>
-                    </section>
-                </main>
+              <span>Engenharia • Software • Tecnologia</span>
             </div>
-    );
+
+            <h1 className="home-hero__title">
+              Transformo problemas em
+              <span> soluções técnicas.</span>
+            </h1>
+
+            <p className="home-hero__description">
+              Uno raciocínio de engenharia e desenvolvimento de software para
+              construir soluções úteis, claras e bem estruturadas.
+            </p>
+
+            <div className="home-hero__actions">
+              <Link
+                to="/projects"
+                className="home-hero__button home-hero__button--primary"
+              >
+                Ver projetos
+                <span aria-hidden="true">→</span>
+              </Link>
+
+              <Link
+                to="/about"
+                className="home-hero__button home-hero__button--secondary"
+              >
+                Conhecer minha trajetória
+              </Link>
+            </div>
+
+            <div className="home-hero__stack">
+              <span className="home-hero__stack-label">Tecnologias</span>
+
+              <div className="home-hero__technologies">
+                {technologies.map((technology) => (
+                  <span key={technology} className="home-hero__technology">
+                    {technology}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <aside className="home-hero__panel" aria-label="Áreas de atuação">
+            <div className="home-hero__panel-header">
+              <span>Áreas de atuação</span>
+
+              <span className="home-hero__panel-status">Em evolução</span>
+            </div>
+
+            <div className="home-hero__area">
+              <span className="home-hero__area-number">01</span>
+
+              <div>
+                <h2>Software</h2>
+
+                <p>
+                  Desenvolvimento de aplicações, arquitetura e integração de
+                  tecnologias.
+                </p>
+              </div>
+            </div>
+
+            <div className="home-hero__area">
+              <span className="home-hero__area-number">02</span>
+
+              <div>
+                <h2>Engenharia</h2>
+
+                <p>
+                  Análise de processos, pensamento sistêmico e resolução
+                  estruturada de problemas.
+                </p>
+              </div>
+            </div>
+
+            <div className="home-hero__area">
+              <span className="home-hero__area-number">03</span>
+
+              <div>
+                <h2>Soluções</h2>
+
+                <p>
+                  Tecnologia aplicada a necessidades reais, do problema inicial
+                  à implementação.
+                </p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </div>
+  );
 }
