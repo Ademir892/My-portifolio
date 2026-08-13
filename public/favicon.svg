@@ -1,0 +1,42 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+>
+  <rect
+    width="64"
+    height="64"
+    rx="14"
+    fill="#0b0d10"
+  />
+
+  <rect
+    x="1"
+    y="1"
+    width="62"
+    height="62"
+    rx="13"
+    fill="none"
+    stroke="#252d36"
+    stroke-width="2"
+  />
+
+  <text
+    x="32"
+    y="38"
+    text-anchor="middle"
+    fill="#f3f5f7"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="21"
+    font-weight="600"
+    letter-spacing="-1"
+  >
+    AT
+  </text>
+
+  <circle
+    cx="49"
+    cy="15"
+    r="3"
+    fill="#7db9f8"
+  />
+</svg>
