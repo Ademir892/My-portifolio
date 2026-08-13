@@ -1,84 +1,128 @@
-import { useState, useEffect } from "react";
-import iconFacebook from "./../../../assets/icons8-facebook-64.svg";
-import iconInstagram from "./../../../assets/icons8-instagram-64.svg";
-import iconLinkedin from "./../../../assets/icons8-linkedin-64.svg";
-import iconWhats from "./../../../assets/icons8-whatsapp (1).svg";
-import iconGitHub from "./../../../assets/icons8-github.svg";
-import "./styles.css";
 import { Link } from "react-router-dom";
-import { finalEmailDisplay, actualEmailForMailto }from "./../../utils/exportConst.ts";
+
+import "./styles.css";
+
+const navigationLinks = [
+  {
+    label: "Início",
+    path: "/",
+  },
+  {
+    label: "Projetos",
+    path: "/projects",
+  },
+  {
+    label: "Sobre",
+    path: "/about",
+  },
+  {
+    label: "Contato",
+    path: "/contact",
+  },
+];
+
+const socialLinks = [
+  {
+    label: "GitHub",
+    url: "https://github.com/Ademir892",
+  },
+  {
+    label: "LinkedIn",
+    url: "https://www.linkedin.com/in/ademir-marmitt-traesel-63bb20221/",
+  },
+];
 
 export default function Footer() {
-  const [showScrollButton, setShowScrollButton] = useState(false);
-
-  const year = new Date().getFullYear(); 
-  
-
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 200) {
-        setShowScrollButton(true);
-      } else {
-        setShowScrollButton(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer>
-      <p className="footer-font-color">&copy; {year} Todos os direitos reservados.</p>
-      <nav className="nav-footer">
-        <div className="links-footer">
-          <Link to="/termos">Termos e Privacidade</Link>
-        </div>
-      </nav>
-      <div className="mp-container socials-media">
-        <a href="https://www.facebook.com/ademir.traesel" target="_blank" rel="noopener noreferrer">
-          <img src={iconFacebook} alt="Facebook" />
-        </a>
-        <a
-          href="https://www.instagram.com/ademir_dev_mentorphysical?igsh=dTA2c2t4aHBqNHA3"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src={iconInstagram} alt="Instagram" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/ademir-marmitt-traesel-63bb20221/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src={iconLinkedin} alt="LinkedIn" />
-        </a>
-        <a
-          href="https://wa.me/5551997923275?text=Olá! Gostaria de mais informações."
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src={iconWhats} alt="WhatsApp" />
-        </a>
-        <a href="https://github.com/Ademir892" target="_blank" rel="noopener noreferrer">
-          <img src={iconGitHub} alt="GitHub" />
-        </a>
-      </div>
-      <p className="footer-font-color">
-        Entre em contato:{" "}
-        <a href={`mailto:${actualEmailForMailto}`}>{finalEmailDisplay}</a>
-      </p>
+    <footer className="site-footer">
+      <div className="site-footer__container">
+        <div className="site-footer__top">
+          <div className="site-footer__brand">
+            <Link
+              to="/"
+              className="site-footer__name"
+              aria-label="Ir para a página inicial"
+            >
+              Ademir Traesel
+            </Link>
 
-      <button
-        className={showScrollButton ? "show" : ""}
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      >
-        Voltar ao topo
-      </button>
+            <p className="site-footer__description">
+              Engenharia, software e tecnologia aplicados à resolução de
+              problemas reais.
+            </p>
+          </div>
+
+          <div className="site-footer__navigation">
+            <div className="site-footer__group">
+              <span className="site-footer__group-title">Navegação</span>
+
+              <nav
+                className="site-footer__links"
+                aria-label="Navegação do rodapé"
+              >
+                {navigationLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className="site-footer__link"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+            <div className="site-footer__group">
+              <span className="site-footer__group-title">Redes</span>
+
+              <div className="site-footer__links">
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="site-footer__link"
+                  >
+                    {link.label}
+
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="site-footer__group">
+              <span className="site-footer__group-title">Informações</span>
+
+              <div className="site-footer__links">
+                <Link to="/termos" className="site-footer__link">
+                  Termos & Privacidade
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="site-footer__bottom">
+          <span>© {currentYear} Ademir Traesel</span>
+
+          <span className="site-footer__signature">
+            Construído com React + TypeScript
+          </span>
+
+          <a
+            href="#top"
+            className="site-footer__back-to-top"
+            aria-label="Voltar ao início da página"
+          >
+            Voltar ao topo
+            <span aria-hidden="true">↑</span>
+          </a>
+        </div>
+      </div>
     </footer>
   );
 }
