@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import FeaturedProjects from "../../components/FeaturedProjects";
+
 import "./styles.css";
 
 const technologies = [
@@ -111,6 +113,8 @@ export default function Home() {
           </aside>
         </div>
       </section>
+
+      <FeaturedProjects />
     </div>
   );
 }
