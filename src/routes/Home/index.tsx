@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import FeaturedProjects from "../../components/FeaturedProjects";
+import ProfessionalJourney from "../../components/ProfessionalJourney";
 
 import "./styles.css";
 
@@ -115,6 +116,8 @@ export default function Home() {
       </section>
 
       <FeaturedProjects />
+
+      <ProfessionalJourney />
     </div>
   );
 }
