@@ -1,23 +1,55 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 import "./styles.css";
 
+const navigationItems = [
+  {
+    label: "Projetos",
+    path: "/projects",
+  },
+  {
+    label: "Sobre",
+    path: "/about",
+  },
+  {
+    label: "Contato",
+    path: "/contact",
+  },
+];
 
 export default function Header() {
-    return (
-        <header>
-            <nav>
-                <div className="title">
-                    <Link to="/about">
-                        <h1>Ademir Marmitt Traesel</h1>
-                    </Link>
-                    <div className="mp-container">
-                        <Link to="/about">About</Link>
-                    </div>
-                    <div className="mp-container">
-                        <Link to="/contact">Contact</Link>
-                    </div>
-                </div>
-            </nav>
-        </header>
-    );
+  return (
+    <header className="site-header">
+      <div className="site-header__container">
+        <NavLink
+          to="/"
+          className="site-header__brand"
+          aria-label="Ir para a página inicial"
+        >
+          <span className="site-header__name">Ademir Traesel</span>
+
+          <span className="site-header__role">Engenharia + Software + Educação Física</span>
+        </NavLink>
+
+        <nav
+          className="site-header__navigation"
+          aria-label="Navegação principal"
+        >
+          {navigationItems.map((item) => (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className={({ isActive }) =>
+                isActive
+                  ? "site-header__link site-header__link--active"
+                  : "site-header__link"
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
+        </nav>
+      </div>
+    </header>
+  );
 }
