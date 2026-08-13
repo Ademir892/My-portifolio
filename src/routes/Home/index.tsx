@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+import ContactCTA from "../../components/ContactCTA";
 import FeaturedProjects from "../../components/FeaturedProjects";
 import ProfessionalJourney from "../../components/ProfessionalJourney";
 
@@ -118,6 +119,8 @@ export default function Home() {
       <FeaturedProjects />
 
       <ProfessionalJourney />
+
+      <ContactCTA />
     </div>
   );
 }
