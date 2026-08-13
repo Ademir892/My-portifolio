@@ -169,8 +169,6 @@
 
   object-fit: cover;
   object-position: center;
-
-  filter: saturate(0.8) contrast(1.03);
 }
 
 .about-hero__identity {
