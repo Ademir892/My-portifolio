@@ -33,7 +33,8 @@ const selectedProjects: SelectedProject[] = [
     description:
       "Projeto concebido para revisar cálculos tributários e ajudar empresas a identificar possíveis inconsistências em guias mensais. A proposta combina regras fiscais, validação de dados e software para tornar verificações complexas mais compreensíveis.",
     technologies: ["Regras de negócio", "Software", "Validação", "Fiscal"],
-    status: "Em planejamento",
+    status: "Em evolução",
+    githubUrl: "https://github.com/Ademir892/Auditor-Triibutario",
   },
   {
     number: "03",
