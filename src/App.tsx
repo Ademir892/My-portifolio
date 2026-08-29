@@ -8,6 +8,7 @@ import { Contact } from "./routes/Contact";
 import Projects from "./routes/Projects";
 import { TermsAnsPrivacy } from "./routes/Terms";
 import Consulting from "./routes/Consulting";
+import Training from "./routes/Training";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/consultoria" element={<Consulting />} />
+          <Route path="/consultoria/treinamento" element={<Training />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/termos" element={<TermsAnsPrivacy />} />
         </Route>

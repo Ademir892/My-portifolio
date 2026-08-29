@@ -1,5 +1,48 @@
 import "./styles.css";
 
+const trainingPlans = [
+  {
+    number: "01",
+    name: "Essencial",
+    description:
+      "Para quem busca um planejamento personalizado e consegue conduzir o processo com mais autonomia.",
+    features: [
+      "Avaliação inicial",
+      "Treinamento personalizado",
+      "Planejamento em PDF",
+      "Orientações para execução",
+      "Revisão periódica",
+    ],
+  },
+  {
+    number: "02",
+    name: "Evolução",
+    featured: true,
+    description:
+      "Para quem quer acompanhamento próximo, ajustes constantes e alguém acompanhando sua evolução.",
+    features: [
+      "Tudo do Essencial",
+      "Acompanhamento semanal",
+      "Ajustes do treinamento",
+      "Feedback via WhatsApp",
+      "Análise de vídeos",
+    ],
+  },
+  {
+    number: "03",
+    name: "Performance",
+    description:
+      "Para quem busca um acompanhamento mais próximo e uma estratégia ainda mais individualizada.",
+    features: [
+      "Tudo do Evolução",
+      "Análise detalhada dos movimentos",
+      "Ajustes mais frequentes",
+      "Videochamadas",
+      "Acompanhamento próximo",
+    ],
+  },
+];
+
 export default function Consulting() {
   return (
     <main className="consulting">
@@ -64,6 +107,74 @@ export default function Consulting() {
             <span className="consulting__coming-soon">Em construção</span>
           </article>
         </div>
+      </section>
+
+      <section
+        className="consulting__plans"
+        aria-labelledby="consulting-plans-title"
+      >
+        <div className="consulting__section-heading">
+          <p className="consulting__eyebrow">TREINAMENTO ONLINE</p>
+
+          <h2 id="consulting-plans-title">
+            Três formas de começar.
+            <span> O cuidado com o seu processo, não.</span>
+          </h2>
+
+          <p className="consulting__plans-intro">
+            A diferença entre os planos está no nível de acompanhamento. O
+            objetivo continua sendo o mesmo: construir um treinamento que faça
+            sentido para você.
+          </p>
+        </div>
+
+        <div className="consulting__plans-grid">
+          {trainingPlans.map((plan) => (
+            <article
+              key={plan.name}
+              className={
+                plan.featured
+                  ? "consulting__plan consulting__plan--featured"
+                  : "consulting__plan"
+              }
+            >
+              <div className="consulting__plan-top">
+                <span className="consulting__plan-number">{plan.number}</span>
+
+                {plan.featured && (
+                  <span className="consulting__plan-badge">Mais procurado</span>
+                )}
+              </div>
+
+              <div>
+                <h3>{plan.name}</h3>
+
+                <p className="consulting__plan-description">
+                  {plan.description}
+                </p>
+              </div>
+
+              <ul className="consulting__plan-features">
+                {plan.features.map((feature) => (
+                  <li key={feature}>
+                    <span aria-hidden="true">✓</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <a href="#interesse" className="consulting__plan-action">
+                Tenho interesse
+                <span aria-hidden="true">→</span>
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <p className="consulting__plans-note">
+          Não sabe qual escolher? Sem problema. Podemos conversar e entender
+          qual formato faz mais sentido para o seu momento.
+        </p>
       </section>
     </main>
   );
