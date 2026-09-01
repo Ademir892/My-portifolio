@@ -1,6 +1,25 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useForm, type SubmitHandler } from "react-hook-form";
+import { Link, useSearchParams } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 
 import "./styles.css";
+
+type FormValues = {
+  name: string;
+  phone: string;
+  email: string;
+  plan: string;
+  goal: string;
+  customGoal?: string;
+  experience: string;
+  frequency: string;
+  limitations?: string;
+  contactPreference: string;
+  message?: string;
+};
+
+type FormStatus = "idle" | "success" | "error";
 
 const trainingGoals = [
   "Ganhar força",
@@ -58,6 +77,52 @@ const trainingPlans = [
 ];
 
 export default function Training() {
+  const [formStatus, setFormStatus] = useState<FormStatus>("idle");
+  const [searchParams] = useSearchParams();
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<FormValues>({
+    defaultValues: {
+      plan: "",
+      goal: "",
+    },
+  });
+
+  useEffect(() => {
+    const selectedPlan = searchParams.get("plano");
+
+    if (
+      selectedPlan &&
+      trainingPlans.some((plan) => plan.name === selectedPlan)
+    ) {
+      setValue("plan", selectedPlan);
+    }
+  }, [searchParams, setValue]);
+
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    setFormStatus("idle");
+
+    try {
+      await emailjs.send(serviceID, templateID, data, publicKey);
+
+      setFormStatus("success");
+      reset();
+    } catch (error) {
+      console.error("Erro ao enviar interesse:", error);
+
+      setFormStatus("error");
+    }
+  };
+
   return (
     <main className="training">
       <section className="training__hero">
@@ -176,8 +241,10 @@ export default function Training() {
         <div className="training__steps-list">
           <article className="training__step">
             <span>01</span>
+
             <div>
               <h3>Você me conta</h3>
+
               <p>
                 Objetivos, rotina, experiência e tudo aquilo que pode ajudar a
                 entender o seu momento.
@@ -187,8 +254,10 @@ export default function Training() {
 
           <article className="training__step">
             <span>02</span>
+
             <div>
               <h3>Eu analiso</h3>
+
               <p>
                 A partir das informações, definimos o que precisa ser trabalhado
                 e como podemos começar.
@@ -198,8 +267,10 @@ export default function Training() {
 
           <article className="training__step">
             <span>03</span>
+
             <div>
               <h3>Construímos o treino</h3>
+
               <p>
                 Você recebe um planejamento personalizado e entende a lógica por
                 trás das escolhas.
@@ -209,8 +280,10 @@ export default function Training() {
 
           <article className="training__step">
             <span>04</span>
+
             <div>
               <h3>Acompanhamos</h3>
+
               <p>
                 Conversamos semanalmente para entender o que está funcionando, o
                 que precisa mudar e como continuar evoluindo.
@@ -219,6 +292,7 @@ export default function Training() {
           </article>
         </div>
       </section>
+
       <section
         id="planos"
         className="training__plans"
@@ -271,10 +345,15 @@ export default function Training() {
                 ))}
               </ul>
 
-              <a href="#interesse" className="training__plan-action">
+              <Link
+                to={`/consultoria/treinamento?plano=${encodeURIComponent(
+                  plan.name,
+                )}#interesse`}
+                className="training__plan-action"
+              >
                 Tenho interesse
                 <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </article>
           ))}
         </div>
@@ -284,6 +363,297 @@ export default function Training() {
           qual formato faz mais sentido para o seu momento.
         </p>
       </section>
+
+      <section
+        id="interesse"
+        className="training__interest"
+        aria-labelledby="training-interest-title"
+      >
+        <div className="training__section-heading">
+          <p className="training__eyebrow">PRÓXIMO PASSO</p>
+
+          <h2 id="training-interest-title">
+            Vamos entender o que você precisa.
+          </h2>
+
+          <p>
+            Antes de começar, quero entender seu momento, seus objetivos e o que
+            você espera desse acompanhamento.
+          </p>
+        </div>
+
+        <form
+          className="training__interest-form"
+          onSubmit={handleSubmit(onSubmit)}
+          noValidate
+        >
+          <div className="training__interest-grid">
+            <div className="training__field">
+              <label htmlFor="name">Nome *</label>
+
+              <input
+                id="name"
+                type="text"
+                placeholder="Como você se chama?"
+                {...register("name", {
+                  required: "Informe seu nome.",
+                })}
+              />
+
+              {errors.name && (
+                <p className="training__field-error">{errors.name.message}</p>
+              )}
+            </div>
+
+            <div className="training__field">
+              <label htmlFor="phone">WhatsApp *</label>
+
+              <input
+                id="phone"
+                type="tel"
+                placeholder="(51) 99999-9999"
+                {...register("phone", {
+                  required: "Informe seu WhatsApp.",
+                })}
+              />
+
+              {errors.phone && (
+                <p className="training__field-error">{errors.phone.message}</p>
+              )}
+            </div>
+          </div>
+
+          <div className="training__field">
+            <label htmlFor="email">E-mail *</label>
+
+            <input
+              id="email"
+              type="email"
+              placeholder="voce@email.com"
+              {...register("email", {
+                required: "Informe seu e-mail.",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Informe um e-mail válido.",
+                },
+              })}
+            />
+
+            {errors.email && (
+              <p className="training__field-error">{errors.email.message}</p>
+            )}
+          </div>
+
+          <div className="training__field">
+            <label htmlFor="plan">Plano de interesse *</label>
+
+            <select
+              id="plan"
+              {...register("plan", {
+                required: "Escolha um plano.",
+              })}
+            >
+              <option value="">Selecione um plano</option>
+              <option value="Essencial">Essencial</option>
+              <option value="Evolução">Evolução</option>
+              <option value="Performance">Performance</option>
+              <option value="Ainda não sei">Ainda não sei</option>
+            </select>
+
+            {errors.plan && (
+              <p className="training__field-error">{errors.plan.message}</p>
+            )}
+          </div>
+
+          <div className="training__field">
+            <label htmlFor="goal">Qual é o seu principal objetivo? *</label>
+
+            <select
+              id="goal"
+              {...register("goal", {
+                required: "Escolha seu objetivo.",
+              })}
+            >
+              <option value="">Selecione seu objetivo</option>
+              <option value="Ganhar força">Ganhar força</option>
+              <option value="Hipertrofia">Hipertrofia</option>
+              <option value="Emagrecimento">Emagrecimento</option>
+              <option value="Condicionamento físico">
+                Condicionamento físico
+              </option>
+              <option value="Mobilidade">Mobilidade</option>
+              <option value="Melhorar movimentos">Melhorar movimentos</option>
+              <option value="Performance">Performance</option>
+              <option value="Qualidade de vida">Qualidade de vida</option>
+              <option value="Voltar a treinar">Voltar a treinar</option>
+              <option value="Outro objetivo">Outro objetivo</option>
+            </select>
+
+            {errors.goal && (
+              <p className="training__field-error">{errors.goal.message}</p>
+            )}
+          </div>
+
+          <div className="training__field">
+            <label htmlFor="customGoal">
+              Se escolheu outro, conte um pouco sobre seu objetivo
+              <span> opcional</span>
+            </label>
+
+            <textarea
+              id="customGoal"
+              rows={4}
+              placeholder="Quero conseguir..."
+              {...register("customGoal")}
+            />
+          </div>
+
+          <div className="training__field">
+            <label htmlFor="experience">
+              Como está sua experiência com treinamento? *
+            </label>
+
+            <select
+              id="experience"
+              {...register("experience", {
+                required: "Selecione uma opção.",
+              })}
+            >
+              <option value="">Selecione uma opção</option>
+              <option value="Estou começando">Estou começando</option>
+              <option value="Já treino">Já treino</option>
+              <option value="Já treinei, mas parei">
+                Já treinei, mas parei
+              </option>
+              <option value="Tenho bastante experiência">
+                Tenho bastante experiência
+              </option>
+            </select>
+
+            {errors.experience && (
+              <p className="training__field-error">
+                {errors.experience.message}
+              </p>
+            )}
+          </div>
+
+          <div className="training__field">
+            <label htmlFor="frequency">
+              Quantas vezes por semana pretende treinar? *
+            </label>
+
+            <select
+              id="frequency"
+              {...register("frequency", {
+                required: "Selecione uma opção.",
+              })}
+            >
+              <option value="">Selecione uma opção</option>
+              <option value="2x por semana">2x por semana</option>
+              <option value="3x por semana">3x por semana</option>
+              <option value="4x por semana">4x por semana</option>
+              <option value="5x ou mais">5x ou mais</option>
+              <option value="Ainda não sei">Ainda não sei</option>
+            </select>
+
+            {errors.frequency && (
+              <p className="training__field-error">
+                {errors.frequency.message}
+              </p>
+            )}
+          </div>
+
+          <div className="training__field">
+            <label htmlFor="limitations">
+              Existe alguma limitação ou algo que eu deveria saber?
+              <span> opcional</span>
+            </label>
+
+            <textarea
+              id="limitations"
+              rows={4}
+              placeholder="Conte algo que possa ser importante para entender seu momento."
+              {...register("limitations")}
+            />
+          </div>
+
+          <div className="training__field">
+            <label htmlFor="contactPreference">
+              Como prefere que eu entre em contato? *
+            </label>
+
+            <select
+              id="contactPreference"
+              {...register("contactPreference", {
+                required: "Escolha uma preferência.",
+              })}
+            >
+              <option value="">Selecione uma opção</option>
+              <option value="WhatsApp">WhatsApp</option>
+              <option value="E-mail">E-mail</option>
+              <option value="Tanto faz">Tanto faz</option>
+            </select>
+
+            {errors.contactPreference && (
+              <p className="training__field-error">
+                {errors.contactPreference.message}
+              </p>
+            )}
+          </div>
+
+          <div className="training__field">
+            <label htmlFor="message">
+              Quer me contar mais alguma coisa?
+              <span> opcional</span>
+            </label>
+
+            <textarea
+              id="message"
+              rows={6}
+              placeholder="Pode escrever livremente. Quanto mais eu entender seu momento, melhor."
+              {...register("message")}
+            />
+          </div>
+
+          {formStatus === "success" && (
+            <div className="training__form-feedback training__form-feedback--success">
+              <strong>Solicitação enviada.</strong>
+
+              <p>
+                Recebi suas informações. Vou analisar tudo e entrar em contato.
+              </p>
+            </div>
+          )}
+
+          {formStatus === "error" && (
+            <div className="training__form-feedback training__form-feedback--error">
+              <strong>Não foi possível enviar.</strong>
+
+              <p>
+                Tente novamente ou entre em contato diretamente pelo WhatsApp.
+              </p>
+            </div>
+          )}
+
+          <div className="training__form-footer">
+            <p>
+              Suas informações serão usadas apenas para entender seu objetivo e
+              entrar em contato sobre a consultoria.
+            </p>
+
+            <button
+              type="submit"
+              className="training__form-submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Enviando..." : "Quero conversar"}
+
+              {!isSubmitting && <span aria-hidden="true">→</span>}
+            </button>
+          </div>
+        </form>
+      </section>
+
       <section className="training__back">
         <Link to="/consultoria">← Voltar para Consultoria</Link>
       </section>

@@ -176,6 +176,59 @@ export default function Consulting() {
           qual formato faz mais sentido para o seu momento.
         </p>
       </section>
+      <section
+        className="consulting__training"
+        aria-labelledby="consulting-training-title"
+      >
+        <div className="consulting__section-heading">
+          <p className="consulting__eyebrow">TREINAMENTO ONLINE</p>
+
+          <h2 id="consulting-training-title">
+            Não é só receber um treino.
+            <span> É entender o processo.</span>
+          </h2>
+
+          <p className="consulting__section-description">
+            O planejamento é construído a partir dos seus objetivos, da sua
+            realidade e daquilo que você precisa desenvolver.
+          </p>
+        </div>
+
+        <div className="consulting__training-grid">
+          <article className="consulting__feature">
+            <span className="consulting__feature-number">01</span>
+
+            <h3>Avaliação</h3>
+
+            <p>
+              Antes de montar qualquer planejamento, quero entender você, seus
+              objetivos, sua rotina e o que precisa ser melhorado.
+            </p>
+          </article>
+
+          <article className="consulting__feature">
+            <span className="consulting__feature-number">02</span>
+
+            <h3>Planejamento</h3>
+
+            <p>
+              Seu treinamento é estruturado de forma individual, considerando
+              seu nível atual, seus objetivos e os recursos disponíveis.
+            </p>
+          </article>
+
+          <article className="consulting__feature">
+            <span className="consulting__feature-number">03</span>
+
+            <h3>Acompanhamento</h3>
+
+            <p>
+              O processo não termina quando você recebe o treino. Ajustamos,
+              conversamos e evoluímos conforme sua realidade muda.
+            </p>
+          </article>
+        </div>
+      </section>
     </main>
   );
 }
