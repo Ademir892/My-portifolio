@@ -8,6 +8,10 @@ const navigationItems = [
     path: "/projects",
   },
   {
+    label: "Consultoria",
+    path: "/consultoria",
+  },
+  {
     label: "Sobre",
     path: "/about",
   },
@@ -28,7 +32,9 @@ export default function Header() {
         >
           <span className="site-header__name">Ademir Traesel</span>
 
-          <span className="site-header__role">Engenharia + Software + Educação Física</span>
+          <span className="site-header__role">
+            Engenharia + Software + Educação Física
+          </span>
         </NavLink>
 
         <nav

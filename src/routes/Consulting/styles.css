@@ -1,0 +1,499 @@
+.consulting {
+  width: min(1120px, calc(100% - 2rem));
+
+  margin: 0 auto;
+
+  padding: 5rem 0 7rem;
+}
+
+/* ================================
+   HERO
+================================ */
+
+.consulting__hero {
+  max-width: 800px;
+
+  padding: 4rem 0 7rem;
+}
+
+.consulting__eyebrow {
+  margin: 0 0 1.5rem;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+}
+
+.consulting__title {
+  margin: 0;
+
+  color: var(--color-text-primary);
+
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 700;
+
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.consulting__title span {
+  color: var(--color-text-muted);
+}
+
+.consulting__description {
+  max-width: 620px;
+
+  margin: 2rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+
+  line-height: 1.6;
+}
+
+/* ================================
+   ÁREAS DE CONSULTORIA
+================================ */
+
+.consulting__areas {
+  padding-top: 2rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.consulting__section-heading {
+  max-width: 650px;
+
+  margin-bottom: 3rem;
+}
+
+.consulting__section-heading h2 {
+  margin: 0;
+
+  color: var(--color-text-primary);
+
+  font-size: clamp(2rem, 4vw, 3.5rem);
+
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.consulting__section-heading h2 span {
+  display: block;
+
+  color: var(--color-text-muted);
+}
+
+.consulting__grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+}
+
+.consulting__card {
+  display: flex;
+
+  min-height: 420px;
+
+  flex-direction: column;
+
+  padding: 2rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: 1.5rem;
+
+  background: var(--color-surface);
+}
+
+.consulting__icon {
+  font-size: 2rem;
+}
+
+.consulting__card-number {
+  margin: 3rem 0 1rem;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+}
+
+.consulting__card h3 {
+  margin: 0;
+
+  color: var(--color-text-primary);
+
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.consulting__card > p:not(.consulting__card-number) {
+  margin: 1.5rem 0 2rem;
+
+  color: var(--color-text-secondary);
+
+  font-size: 1rem;
+
+  line-height: 1.7;
+}
+
+.consulting__coming-soon {
+  margin-top: auto;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+/* ================================
+   TREINAMENTO ONLINE
+================================ */
+
+.consulting__training {
+  padding: 8rem 0;
+}
+
+.consulting__section-description {
+  max-width: 680px;
+
+  margin: 1.5rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  font-size: 1.125rem;
+
+  line-height: 1.7;
+}
+
+.consulting__training-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  margin-top: 4rem;
+}
+
+.consulting__feature {
+  display: flex;
+
+  min-height: 300px;
+
+  flex-direction: column;
+
+  padding: 2rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: 1.5rem;
+
+  background: var(--color-surface);
+}
+
+.consulting__feature-number {
+  display: block;
+
+  margin-bottom: auto;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+}
+
+.consulting__feature h3 {
+  margin: 4rem 0 0;
+
+  color: var(--color-text-primary);
+
+  font-size: 1.75rem;
+
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.consulting__feature p {
+  max-width: 32rem;
+
+  margin: 1rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  line-height: 1.7;
+}
+
+/* ================================
+   PLANOS
+================================ */
+
+.consulting__plans {
+  margin-top: 8rem;
+
+  padding-top: 2rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.consulting__plans-intro {
+  max-width: 620px;
+
+  margin: 1.5rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  font-size: 1rem;
+
+  line-height: 1.7;
+}
+
+.consulting__plans-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 1rem;
+}
+
+.consulting__plan {
+  display: flex;
+
+  min-height: 540px;
+
+  flex-direction: column;
+
+  padding: 2rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: 1.5rem;
+
+  background: var(--color-background);
+}
+
+.consulting__plan--featured {
+  background: var(--color-surface);
+}
+
+.consulting__plan-top {
+  display: flex;
+
+  min-height: 32px;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+}
+
+.consulting__plan-number {
+  color: var(--color-text-muted);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+}
+
+.consulting__plan-badge {
+  padding: 0.4rem 0.7rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+
+  color: var(--color-text-secondary);
+
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.consulting__plan h3 {
+  margin: 3rem 0 0;
+
+  color: var(--color-text-primary);
+
+  font-size: clamp(2rem, 3vw, 2.75rem);
+
+  line-height: 1;
+
+  letter-spacing: -0.05em;
+}
+
+.consulting__plan-description {
+  max-width: 360px;
+
+  margin: 1.5rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  font-size: 0.95rem;
+
+  line-height: 1.7;
+}
+
+.consulting__plan-features {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.9rem;
+
+  margin: 2.5rem 0 2rem;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+.consulting__plan-features li {
+  display: flex;
+
+  gap: 0.75rem;
+
+  align-items: flex-start;
+
+  color: var(--color-text-secondary);
+
+  font-size: 0.9rem;
+
+  line-height: 1.5;
+}
+
+.consulting__plan-features li span {
+  flex-shrink: 0;
+
+  color: var(--color-text-primary);
+
+  font-weight: 700;
+}
+
+.consulting__plan-action {
+  display: flex;
+
+  min-height: 52px;
+
+  margin-top: auto;
+
+  padding: 0 1.25rem;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border: 1px solid var(--color-border);
+
+  border-radius: 999px;
+
+  color: var(--color-text-primary);
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.consulting__plan-action:hover {
+  background: var(--color-surface);
+
+  transform: translateY(-2px);
+}
+
+.consulting__plan-action span {
+  font-size: 1.1rem;
+}
+
+.consulting__plans-note {
+  max-width: 650px;
+
+  margin: 1.5rem 0 0;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.875rem;
+
+  line-height: 1.6;
+}
+
+/* ================================
+   RESPONSIVO
+================================ */
+
+@media (max-width: 900px) {
+  .consulting__plans-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .consulting__plan {
+    min-height: auto;
+  }
+
+  .consulting__training-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .consulting {
+    width: min(100% - 2rem, 1120px);
+
+    padding: 2rem 0 5rem;
+  }
+
+  .consulting__hero {
+    padding: 3rem 0 5rem;
+  }
+
+  .consulting__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .consulting__card {
+    min-height: 340px;
+  }
+
+  .consulting__plans {
+    margin-top: 5rem;
+  }
+
+  .consulting__plan {
+    padding: 1.5rem;
+  }
+
+  .consulting__training {
+    padding: 5rem 0;
+  }
+
+  .consulting__feature {
+    min-height: auto;
+  }
+
+  .consulting__feature-number {
+    margin-bottom: 3rem;
+  }
+
+  .consulting__feature h3 {
+    margin-top: 0;
+  }
+}
