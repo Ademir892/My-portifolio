@@ -110,8 +110,7 @@
 }
 
 .training__primary-action {
-  color: var(--color-background);
-
+  
   background: var(--color-text-primary);
 }
 
@@ -1022,3 +1021,61 @@
   font-size: 0.875rem;
   line-height: 1.6;
 }
+
+.training__interest-form {
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1.5rem;
+  background: var(--color-surface);
+}
+
+.training__interest-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.training__field-error {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.training__form-feedback {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+}
+
+.training__form-feedback strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--color-text-primary);
+}
+
+.training__form-feedback p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.training__form-feedback--success {
+  background: var(--color-background);
+}
+
+.training__form-feedback--error {
+  background: var(--color-background);
+}
+
+@media (max-width: 720px) {
+  .training__interest-form {
+    padding: 1.5rem;
+  }
+
+  .training__interest-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

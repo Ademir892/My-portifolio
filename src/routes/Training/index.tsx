@@ -106,13 +106,21 @@ export default function Training() {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TRAINING_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    const templateData = {
+      ...data,
+      source: "Site — Treinamento Online",
+      customGoal: data.customGoal || "Não informado",
+      limitations: data.limitations || "Não informado",
+      message: data.message || "Não informado",
+    };
 
     setFormStatus("idle");
 
     try {
-      await emailjs.send(serviceID, templateID, data, publicKey);
+      await emailjs.send(serviceID, templateID, templateData, publicKey);
 
       setFormStatus("success");
       reset();
@@ -185,12 +193,14 @@ export default function Training() {
           {trainingGoals.map((goal, index) => (
             <div className="training__goal" key={goal}>
               <span>{String(index + 1).padStart(2, "0")}</span>
+
               <strong>{goal}</strong>
             </div>
           ))}
 
           <div className="training__goal training__goal--custom">
             <span>+</span>
+
             <strong>Outro objetivo</strong>
           </div>
         </div>
@@ -346,9 +356,7 @@ export default function Training() {
               </ul>
 
               <Link
-                to={`/consultoria/treinamento?plano=${encodeURIComponent(
-                  plan.name,
-                )}#interesse`}
+                to={`?plano=${encodeURIComponent(plan.name)}#interesse`}
                 className="training__plan-action"
               >
                 Tenho interesse
@@ -475,17 +483,13 @@ export default function Training() {
               })}
             >
               <option value="">Selecione seu objetivo</option>
-              <option value="Ganhar força">Ganhar força</option>
-              <option value="Hipertrofia">Hipertrofia</option>
-              <option value="Emagrecimento">Emagrecimento</option>
-              <option value="Condicionamento físico">
-                Condicionamento físico
-              </option>
-              <option value="Mobilidade">Mobilidade</option>
-              <option value="Melhorar movimentos">Melhorar movimentos</option>
-              <option value="Performance">Performance</option>
-              <option value="Qualidade de vida">Qualidade de vida</option>
-              <option value="Voltar a treinar">Voltar a treinar</option>
+
+              {trainingGoals.map((goal) => (
+                <option key={goal} value={goal}>
+                  {goal}
+                </option>
+              ))}
+
               <option value="Outro objetivo">Outro objetivo</option>
             </select>
 
