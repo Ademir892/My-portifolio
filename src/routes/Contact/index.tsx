@@ -24,14 +24,24 @@ export function Contact() {
   } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    const serviceID = "service_4ej0xm4";
-    const templateID = "template_5xmb5pi";
-    const publicKey = "amcRpFdmhcKDDOfsA";
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    const templateData = {
+      name: data.name,
+      email: data.email,
+      phone: data.phone || "Não informado",
+      message: data.message,
+      source: "Site — Contato",
+      subject: "Contato geral",
+      details: "",
+    };
 
     setFormStatus("idle");
 
     try {
-      await emailjs.send(serviceID, templateID, data, publicKey);
+      await emailjs.send(serviceID, templateID, templateData, publicKey);
 
       setFormStatus("success");
       reset();
