@@ -1,7 +1,10 @@
+import { Link } from "react-router-dom";
+
 import "./styles.css";
 
 const contentProducts = [
   {
+    slug: "postura-no-dia-a-dia",
     category: "POSTURA",
     title: "Postura no dia a dia",
     description:
@@ -9,6 +12,7 @@ const contentProducts = [
     status: "Em breve",
   },
   {
+    slug: "mobilidade-para-a-vida-real",
     category: "MOBILIDADE",
     title: "Mobilidade para a vida real",
     description:
@@ -16,6 +20,7 @@ const contentProducts = [
     status: "Em breve",
   },
   {
+    slug: "treino-funcional",
     category: "TREINAMENTO",
     title: "Treino Funcional: comece pelo movimento",
     description:
@@ -26,188 +31,97 @@ const contentProducts = [
 
 export default function Content() {
   return (
-    <main className="content-page">
-      <section className="content__hero" aria-labelledby="content-title">
-        <div className="content__hero-inner">
-          <div className="content__hero-copy">
-            <p className="content__eyebrow">CONTEÚDOS DIGITAIS</p>
+    <main className="content">
+      <section className="content__hero">
+        <div className="content__hero-content">
+          <p className="content__eyebrow">CONTEÚDOS DIGITAIS</p>
 
-            <h1 id="content-title">
-              Conhecimento para você
-              <span>se movimentar melhor.</span>
-            </h1>
+          <h1>
+            Conhecimento para
+            <span>entender o movimento.</span>
+          </h1>
 
-            <p className="content__hero-description">
-              Guias práticos sobre movimento, postura, mobilidade e treinamento,
-              desenvolvidos a partir de uma visão funcional do corpo.
-            </p>
-
-            <a href="#materiais" className="content__hero-action">
-              Explorar conteúdos
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
-
-          <div className="content__hero-mark" aria-hidden="true">
-            <span>+</span>
-          </div>
+          <p className="content__hero-description">
+            Materiais desenvolvidos a partir de uma visão prática sobre corpo,
+            movimento, treinamento e funcionalidade.
+          </p>
         </div>
       </section>
 
-      <section
-        id="materiais"
-        className="content__products"
-        aria-labelledby="content-products-title"
-      >
-        <div className="content__section-heading">
-          <p className="content__eyebrow">MATERIAIS</p>
+      <section className="content__catalog">
+        <div className="content__catalog-header">
+          <div>
+            <span className="content__section-number">01</span>
 
-          <h2 id="content-products-title">
-            Conteúdo pensado para
-            <span>ser aplicado na vida real.</span>
-          </h2>
+            <p className="content__eyebrow">CATÁLOGO</p>
+          </div>
 
-          <p>
-            Materiais objetivos para quem quer entender melhor o próprio corpo e
-            desenvolver uma relação mais consciente com o movimento.
+          <p className="content__catalog-introduction">
+            Cada material parte de uma pergunta diferente, mas todos seguem a
+            mesma ideia: compreender antes de simplesmente executar.
           </p>
         </div>
 
-        <div className="content__products-grid">
+        <div className="content__products">
           {contentProducts.map((product, index) => (
-            <article
-              key={product.title}
+            <Link
+              key={product.slug}
+              to={`/conteudos/${product.slug}`}
               className={`content__product content__product--${index + 1}`}
             >
               <div className="content__product-top">
-                <span className="content__product-number">0{index + 1}</span>
+                <span>{String(index + 1).padStart(2, "0")}</span>
 
-                <span className="content__product-category">
-                  {product.category}
-                </span>
+                <span>{product.category}</span>
               </div>
 
               <div className="content__product-content">
-                <p className="content__product-status">{product.status}</p>
-
-                <h3>{product.title}</h3>
+                <h2>{product.title}</h2>
 
                 <p>{product.description}</p>
               </div>
 
               <div className="content__product-footer">
-                <span className="content__product-link content__product-link--disabled">
-                  Em breve
-                </span>
+                <span>{product.status}</span>
+
+                <span aria-hidden="true">→</span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </section>
 
-      <section
-        className="content__philosophy"
-        aria-labelledby="content-philosophy-title"
-      >
-        <div className="content__philosophy-heading">
-          <p className="content__eyebrow">UMA OUTRA FORMA DE APRENDER</p>
-
-          <h2 id="content-philosophy-title">
-            Treinar também é<span>entender.</span>
-          </h2>
-        </div>
+      <section className="content__philosophy">
+        <div className="content__philosophy-number">02</div>
 
         <div className="content__philosophy-content">
-          <p>
-            Informação não substitui acompanhamento profissional. Mas entender
-            melhor como o corpo funciona pode mudar completamente a forma como
-            você se movimenta, treina e percebe sua própria rotina.
-          </p>
-
-          <p>
-            Por isso, os materiais são desenvolvidos para transformar conceitos
-            em orientações práticas, sem promessas milagrosas e sem transformar
-            o movimento em uma fórmula pronta.
-          </p>
-        </div>
-      </section>
-
-      <section
-        className="content__how-it-works"
-        aria-labelledby="content-how-title"
-      >
-        <div className="content__section-heading">
-          <p className="content__eyebrow">COMO FUNCIONA</p>
-
-          <h2 id="content-how-title">
-            Simples de acessar.
-            <span>Fácil de aplicar.</span>
-          </h2>
-        </div>
-
-        <div className="content__steps">
-          <article className="content__step">
-            <span className="content__step-number">01</span>
-
-            <div>
-              <h3>Escolha o material</h3>
-
-              <p>
-                Encontre o conteúdo que mais combina com o que você busca
-                desenvolver.
-              </p>
-            </div>
-          </article>
-
-          <article className="content__step">
-            <span className="content__step-number">02</span>
-
-            <div>
-              <h3>Faça sua aquisição</h3>
-
-              <p>
-                O pagamento será realizado de forma segura através da plataforma
-                de checkout.
-              </p>
-            </div>
-          </article>
-
-          <article className="content__step">
-            <span className="content__step-number">03</span>
-
-            <div>
-              <h3>Receba seu material</h3>
-
-              <p>
-                Após a confirmação, você receberá acesso ao conteúdo adquirido.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section className="content__disclaimer">
-        <p>
-          Os materiais possuem caráter educativo e não substituem avaliação,
-          diagnóstico ou acompanhamento individualizado de um profissional
-          habilitado.
-        </p>
-      </section>
-
-      <section className="content__final-cta">
-        <div>
-          <p className="content__eyebrow">CONHECIMENTO EM MOVIMENTO</p>
+          <p className="content__eyebrow">A IDEIA</p>
 
           <h2>
-            Comece entendendo
-            <span>o seu próprio corpo.</span>
+            Não quero apenas ensinar
+            <span>o que fazer.</span>
           </h2>
-        </div>
 
-        <a href="#materiais" className="content__final-action">
-          Ver materiais
-          <span aria-hidden="true">→</span>
-        </a>
+          <p>
+            Quero ajudar você a entender por que está fazendo, perceber o que
+            seu corpo está fazendo e desenvolver uma relação mais consciente com
+            o próprio movimento.
+          </p>
+        </div>
+      </section>
+
+      <section className="content__closing">
+        <p className="content__eyebrow">EM CONSTRUÇÃO</p>
+
+        <h2>
+          Novos materiais
+          <span>estão chegando.</span>
+        </h2>
+
+        <p>
+          Os primeiros conteúdos estão sendo desenvolvidos com calma,
+          profundidade e aplicação prática.
+        </p>
       </section>
     </main>
   );
