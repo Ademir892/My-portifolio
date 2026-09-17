@@ -1,0 +1,581 @@
+.content {
+  width: min(100% - 3rem, var(--container-width));
+  margin: 0 auto;
+  padding: 0 0 8rem;
+  color: var(--color-text);
+}
+
+/* =================================
+   HERO
+================================= */
+
+.content__hero {
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.content__hero-content {
+  width: 100%;
+  padding: 8rem 0;
+}
+
+.content__eyebrow {
+  margin: 0 0 1.5rem;
+  color: var(--color-accent);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+}
+
+.content__hero h1 {
+  max-width: 920px;
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(4rem, 9vw, 8rem);
+  font-weight: var(--font-weight-semibold);
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+}
+
+.content__hero h1 span {
+  display: block;
+  color: var(--color-text-muted);
+}
+
+.content__hero-description {
+  max-width: 650px;
+  margin: 3rem 0 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+  line-height: 1.75;
+}
+
+/* =================================
+   CATÁLOGO
+================================= */
+
+.content__catalog {
+  padding: 8rem 0 0;
+}
+
+.content__catalog-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 520px);
+  gap: 5rem;
+  align-items: end;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.content__section-number,
+.content__philosophy-number {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
+}
+
+.content__catalog-introduction {
+  max-width: 520px;
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  line-height: 1.75;
+}
+
+/* =================================
+   PRODUTOS
+================================= */
+
+.content__products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 4rem 0 0;
+}
+
+.content__product {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-decoration: none;
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    transform var(--transition-base);
+}
+
+.content__product:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+  transform: translateY(-5px);
+}
+
+.content__product-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.content__product-top span:first-child {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.content__product-top span:last-child {
+  color: var(--color-accent);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.1em;
+}
+
+.content__product-content {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+}
+
+.content__product h2 {
+  max-width: 520px;
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: var(--font-weight-semibold);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.content__product p {
+  max-width: 430px;
+  margin: 1.25rem 0 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+}
+
+.content__product-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.content__product-footer span:first-child {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.content__product-footer span:last-child {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 50%;
+  color: var(--color-accent);
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.content__product:hover .content__product-footer span:last-child {
+  transform: translate(4px, -4px);
+  border-color: var(--color-accent);
+}
+
+/* =================================
+   IDENTIDADE — POSTURA
+================================= */
+
+.content__product--1 {
+  position: relative;
+  overflow: hidden;
+}
+
+.content__product--1::before {
+  content: "";
+  position: absolute;
+  top: 5rem;
+  right: 3rem;
+  width: 1px;
+  height: 62%;
+  background: var(--color-border-strong);
+  pointer-events: none;
+}
+
+.content__product--1::after {
+  content: "";
+  position: absolute;
+  top: 15%;
+  right: 2.55rem;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--color-accent);
+  border-radius: 50%;
+  background: var(--color-surface);
+  pointer-events: none;
+}
+
+.content__product--1:hover::before {
+  background: var(--color-accent);
+}
+
+.content__product--1:hover::after {
+  transform: scale(1.35);
+}
+
+/* =================================
+   IDENTIDADE — MOBILIDADE
+================================= */
+
+.content__product--2 {
+  position: relative;
+  overflow: hidden;
+}
+
+.content__product--2::before,
+.content__product--2::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 50%;
+}
+
+.content__product--2::before {
+  width: 360px;
+  height: 360px;
+  right: -210px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.content__product--2::after {
+  width: 230px;
+  height: 230px;
+  right: -145px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.content__product--2 .content__product-top,
+.content__product--2 .content__product-content,
+.content__product--2 .content__product-footer {
+  position: relative;
+  z-index: 2;
+}
+
+.content__product--2 .content__product-footer span:last-child {
+  transform: rotate(-45deg);
+}
+
+.content__product--2:hover .content__product-footer span:last-child {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* =================================
+   IDENTIDADE — TREINO FUNCIONAL
+================================= */
+
+.content__product--3 {
+  grid-column: 1 / -1;
+  min-height: 390px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  grid-template-rows: auto 1fr auto;
+  column-gap: 5rem;
+}
+
+.content__product--3 .content__product-top {
+  grid-column: 1 / -1;
+}
+
+.content__product--3 .content__product-content {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: end;
+}
+
+.content__product--3 .content__product-footer {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.content__product--3::before {
+  content: "01";
+  position: absolute;
+  right: 3rem;
+  top: 5rem;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}
+
+.content__product--3::after {
+  content: "02   03   04   05";
+  position: absolute;
+  right: 3rem;
+  top: 7rem;
+  color: var(--color-text-muted);
+  font-size: 0.65rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.12em;
+  pointer-events: none;
+}
+
+.content__product--3:hover::after {
+  color: var(--color-accent);
+}
+
+/* =================================
+   FILOSOFIA
+================================= */
+
+.content__philosophy {
+  display: grid;
+  grid-template-columns: minmax(100px, 0.45fr) minmax(0, 1fr);
+  gap: 5rem;
+  padding: 9rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.content__philosophy-content {
+  max-width: 760px;
+}
+
+.content__philosophy-content h2 {
+  max-width: 760px;
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(2.75rem, 5vw, 4.75rem);
+  font-weight: var(--font-weight-semibold);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.content__philosophy-content h2 span {
+  display: block;
+  color: var(--color-text-muted);
+}
+
+.content__philosophy-content p {
+  max-width: 650px;
+  margin: 2rem 0 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+  line-height: 1.8;
+}
+
+/* =================================
+   ENCERRAMENTO
+================================= */
+
+.content__closing {
+  padding: 9rem 0 0;
+}
+
+.content__closing h2 {
+  max-width: 760px;
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: var(--font-weight-semibold);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.content__closing h2 span {
+  display: block;
+  color: var(--color-text-muted);
+}
+
+.content__closing p:last-child {
+  max-width: 620px;
+  margin: 2rem 0 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  line-height: 1.75;
+}
+
+/* =================================
+   RESPONSIVO — TABLET
+================================= */
+
+@media (max-width: 900px) {
+  .content__hero {
+    min-height: auto;
+  }
+
+  .content__hero-content {
+    padding: 7rem 0;
+  }
+
+  .content__hero h1 {
+    font-size: clamp(3.75rem, 10vw, 6rem);
+  }
+
+  .content__catalog {
+    padding-top: 6rem;
+  }
+
+  .content__catalog-header {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .content__products {
+    grid-template-columns: 1fr;
+  }
+
+  .content__product {
+    min-height: 440px;
+  }
+
+  .content__product--3 {
+    min-height: 440px;
+  }
+
+  .content__philosophy {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 7rem 0;
+  }
+
+  .content__closing {
+    padding-top: 7rem;
+  }
+}
+
+/* =================================
+   RESPONSIVO — MOBILE
+================================= */
+
+@media (max-width: 720px) {
+  .content {
+    width: min(100% - 2rem, var(--container-width));
+    padding-bottom: 5rem;
+  }
+
+  .content__hero-content {
+    padding: 6rem 0;
+  }
+
+  .content__hero h1 {
+    font-size: clamp(3.25rem, 15vw, 5rem);
+  }
+
+  .content__hero-description {
+    margin-top: 2rem;
+    font-size: 1rem;
+  }
+
+  .content__catalog {
+    padding-top: 5rem;
+  }
+
+  .content__catalog-header {
+    padding-bottom: 3rem;
+  }
+
+  .content__products {
+    gap: 0.75rem;
+    padding-top: 3rem;
+  }
+
+  .content__product {
+    min-height: 430px;
+    padding: 1.5rem;
+  }
+
+  .content__product h2 {
+    font-size: clamp(1.9rem, 9vw, 2.75rem);
+  }
+
+  .content__product--1::before {
+    right: 2rem;
+  }
+
+  .content__product--1::after {
+    right: 1.55rem;
+  }
+
+  .content__product--2::before {
+    width: 270px;
+    height: 270px;
+    right: -175px;
+  }
+
+  .content__product--2::after {
+    width: 170px;
+    height: 170px;
+    right: -115px;
+  }
+
+  .content__product--3 {
+    min-height: 430px;
+    display: flex;
+  }
+
+  .content__product--3 .content__product-content {
+    margin-top: auto;
+  }
+
+  .content__product--3::before {
+    right: 1.5rem;
+    top: 5rem;
+  }
+
+  .content__product--3::after {
+    right: 1.5rem;
+    top: 7rem;
+    font-size: 0.55rem;
+  }
+
+  .content__philosophy {
+    padding: 6rem 0;
+  }
+
+  .content__philosophy-content h2 {
+    font-size: clamp(2.5rem, 12vw, 3.75rem);
+  }
+
+  .content__philosophy-content p {
+    font-size: 1rem;
+  }
+
+  .content__closing {
+    padding-top: 6rem;
+  }
+
+  .content__closing h2 {
+    font-size: clamp(2.75rem, 13vw, 4rem);
+  }
+}

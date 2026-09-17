@@ -3,22 +3,11 @@ import { NavLink } from "react-router-dom";
 import "./styles.css";
 
 const navigationItems = [
-  {
-    label: "Projetos",
-    path: "/projects",
-  },
-  {
-    label: "Consultoria",
-    path: "/consultoria",
-  },
-  {
-    label: "Sobre",
-    path: "/about",
-  },
-  {
-    label: "Contato",
-    path: "/contact",
-  },
+  { label: "Projetos", path: "/projects" },
+  { label: "Consultoria", path: "/consultoria" },
+  { label: "Conteúdos", path: "/conteudos" },
+  { label: "Sobre", path: "/about" },
+  { label: "Contato", path: "/contact" },
 ];
 
 export default function Header() {
