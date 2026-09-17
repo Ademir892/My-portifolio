@@ -1,33 +1,6 @@
 import { Link } from "react-router-dom";
-
+import { contentProducts } from "../../data/contentProducts";
 import "./styles.css";
-
-const contentProducts = [
-  {
-    slug: "postura-no-dia-a-dia",
-    category: "POSTURA",
-    title: "Postura no dia a dia",
-    description:
-      "Um guia prático para compreender melhor sua postura e os hábitos de movimento presentes na rotina.",
-    status: "Em breve",
-  },
-  {
-    slug: "mobilidade-para-a-vida-real",
-    category: "MOBILIDADE",
-    title: "Mobilidade para a vida real",
-    description:
-      "Estratégias simples para desenvolver mobilidade e melhorar a qualidade dos seus movimentos.",
-    status: "Em breve",
-  },
-  {
-    slug: "treino-funcional",
-    category: "TREINAMENTO",
-    title: "Treino Funcional: comece pelo movimento",
-    description:
-      "Princípios para começar a treinar com mais consciência, controle e qualidade de movimento.",
-    status: "Em breve",
-  },
-];
 
 export default function Content() {
   return (
@@ -78,7 +51,7 @@ export default function Content() {
               <div className="content__product-content">
                 <h2>{product.title}</h2>
 
-                <p>{product.description}</p>
+                <p>{product.shortDescription}</p>
               </div>
 
               <div className="content__product-footer">
