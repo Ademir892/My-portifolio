@@ -1,17 +1,19 @@
 export type ContentProduct = {
-  slug: string;              // URL do produto
-  category: string;          // categoria visual
-  title: string;             // nome principal
-  shortDescription: string;  // descrição no catálogo
-  subtitle: string;          // posicionamento do produto
-  introduction: string;      // introdução da página
-  audience: string[];        // para quem é
-  topics: string[];          // assuntos abordados
-  format: string;             // E-book digital
-  status: string;             // Em breve / disponível
-  price: string | null;       // futuro preço
-  checkoutUrl: string | null; // futuro Kiwify
-  cover: string | null;       // futura capa
+  slug: string;
+  category: string;
+  title: string;
+  shortDescription: string;
+  subtitle: string;
+  introduction: string;
+  audience: string[];
+  topics: string[];
+  benefits: string[];
+  format: string;
+  status: string;
+  price: string | null;
+  checkoutUrl: string | null;
+  cover: string | null;
+  ctaLabel: string;
 };
 
 export const contentProducts: ContentProduct[] = [
@@ -36,11 +38,13 @@ export const contentProducts: ContentProduct[] = [
       "Movimento na rotina",
       "Organização corporal",
     ],
+    benefits: [],
     format: "E-book digital",
     status: "Em breve",
     price: null,
     checkoutUrl: null,
     cover: null,
+    ctaLabel: "Disponível em breve",
   },
   {
     slug: "mobilidade-para-a-vida-real",
@@ -63,11 +67,13 @@ export const contentProducts: ContentProduct[] = [
       "Percepção corporal",
       "Aplicação prática",
     ],
+    benefits: [],
     format: "E-book digital",
     status: "Em breve",
     price: null,
     checkoutUrl: null,
     cover: null,
+    ctaLabel: "Disponível em breve",
   },
   {
     slug: "treino-funcional",
@@ -90,10 +96,12 @@ export const contentProducts: ContentProduct[] = [
       "Qualidade de execução",
       "Princípios do treinamento funcional",
     ],
+    benefits: [],
     format: "E-book digital",
     status: "Em breve",
     price: null,
     checkoutUrl: null,
     cover: null,
+    ctaLabel: "Disponível em breve",
   },
 ];

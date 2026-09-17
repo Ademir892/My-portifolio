@@ -24,6 +24,8 @@ describe("contentProducts", () => {
       expect(product.introduction).toBeTruthy();
       expect(product.format).toBeTruthy();
       expect(product.status).toBeTruthy();
+      expect(product.ctaLabel).toBeTruthy();
+      expect(product.benefits).toBeDefined();
 
       expect(product.audience.length).toBeGreaterThan(0);
       expect(product.topics.length).toBeGreaterThan(0);

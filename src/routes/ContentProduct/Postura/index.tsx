@@ -275,7 +275,7 @@ export default function Postura() {
         </div>
 
         <div className="posture-product__information">
-          <p className="posture-eyebrow">EM BREVE</p>
+          <p className="posture-eyebrow">{product.status}</p>
 
           <h2>
             Um material para
@@ -302,7 +302,7 @@ export default function Postura() {
           </div>
 
           <span className="posture-product__button">
-            Disponível em breve
+            {product.ctaLabel}
             <span aria-hidden="true">→</span>
           </span>
         </div>

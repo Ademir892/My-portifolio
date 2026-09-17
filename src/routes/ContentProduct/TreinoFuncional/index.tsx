@@ -288,7 +288,7 @@ export default function TreinoFuncional() {
         </div>
 
         <div className="functional-product__information">
-          <p className="functional-eyebrow">EM BREVE</p>
+          <p className="functional-eyebrow">{product.status}</p>
 
           <h2>
             Um ponto de partida
@@ -315,7 +315,7 @@ export default function TreinoFuncional() {
           </div>
 
           <span className="functional-product__button">
-            Disponível em breve
+            {product.ctaLabel}
             <span aria-hidden="true">→</span>
           </span>
         </div>

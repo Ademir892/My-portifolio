@@ -289,7 +289,7 @@ export default function Mobilidade() {
         </div>
 
         <div className="mobility-product__information">
-          <p className="mobility-eyebrow">EM BREVE</p>
+          <p className="mobility-eyebrow">{product.status}</p>
 
           <h2>
             Um material para
@@ -316,7 +316,7 @@ export default function Mobilidade() {
           </div>
 
           <span className="mobility-product__button">
-            Disponível em breve
+            {product.ctaLabel}
             <span aria-hidden="true">→</span>
           </span>
         </div>
