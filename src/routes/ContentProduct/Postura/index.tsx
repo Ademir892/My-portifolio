@@ -301,10 +301,15 @@ export default function Postura() {
             </div>
           </div>
 
-          <span className="posture-product__button">
+          <a
+            href={product.checkoutUrl ?? "#"}
+            className="posture-product__button"
+            target="_blank"
+            rel="noreferrer"
+          >
             {product.ctaLabel}
             <span aria-hidden="true">→</span>
-          </span>
+          </a>
         </div>
       </section>
 

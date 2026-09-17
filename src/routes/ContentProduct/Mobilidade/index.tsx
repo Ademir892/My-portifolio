@@ -315,10 +315,15 @@ export default function Mobilidade() {
             </div>
           </div>
 
-          <span className="mobility-product__button">
+          <a
+            href={product.checkoutUrl ?? "#"}
+            className="mobility-product__button"
+            target="_blank"
+            rel="noreferrer"
+          >
             {product.ctaLabel}
             <span aria-hidden="true">→</span>
-          </span>
+          </a>
         </div>
       </section>
 

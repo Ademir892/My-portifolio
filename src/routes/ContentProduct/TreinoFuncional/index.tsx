@@ -314,10 +314,15 @@ export default function TreinoFuncional() {
             </div>
           </div>
 
-          <span className="functional-product__button">
+          <a
+            href={product.checkoutUrl ?? "#"}
+            className="functional-product__button"
+            target="_blank"
+            rel="noreferrer"
+          >
             {product.ctaLabel}
             <span aria-hidden="true">→</span>
-          </span>
+          </a>
         </div>
       </section>
 

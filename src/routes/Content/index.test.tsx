@@ -51,14 +51,14 @@ describe("Content", () => {
     ).toHaveAttribute("href", "/conteudos/treino-funcional");
   });
 
-  it("deve exibir os conteúdos como disponíveis em breve", () => {
+  it("deve exibir os três conteúdos como disponíveis", () => {
     render(
       <MemoryRouter>
         <Content />
       </MemoryRouter>,
     );
 
-    const statuses = screen.getAllByText("Em breve");
+    const statuses = screen.getAllByText("Disponível");
 
     expect(statuses).toHaveLength(3);
   });
